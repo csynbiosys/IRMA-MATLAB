@@ -14,3 +14,4 @@ sol = dde23(@(t,sol,Z) IRMA(t,sol,Z,K,1,0,t), [100] ,y0,[0 3000]);
 out=[sol.x;sol.y]';
 plot(out(:,1),out(:,2:6));
 axis([200 1200 0 max(max(out(:,2:6)))*1.1])
+legend('CBF1','GAL4','SWI5','GAL80','ASH1');
