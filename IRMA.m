@@ -10,9 +10,9 @@
 %=========================================================================
 
 % %=========================================================================
-% %                       Script to simulate IRMA
+% %  Script to simulate the revised toplogy IRMA as in (Marucci et al, 2009)
 % %                                  ---
-% %                   Filippo Menolascina - 21/11/2016
+% %                   Filippo Menolascina - 22/11/2016
 % %=========================================================================
 % 
 % clear;clc;
@@ -54,7 +54,8 @@ alfa6=1;
 deg6=1;
 dec=1;
 % CBF1 mRNA
-dy(1,1)= ((K(1)+ v*K(2)* (Z(3).^K(31)./( (K(3).^K(31)+Z(3).^K(31)) *( 1+((y(5).^K(32))/(K(4).^K(32))))  ))  -deg* K(5)*y(1))); 
+% dy(1,1)= ((K(1)+ v*K(2)* (Z(3).^K(31)./( (K(3).^K(31)+Z(3).^K(31)) *( 1+((y(5).^K(32))/(K(4).^K(32))))  ))  -deg* K(5)*y(1))); 
+dy(1,1) = K(1) + K(2) * (K(4)^K(32)/(K(4)^K(32)+y(5)^K(32))) - K(5)*y(1);
 % GAL4 mRNA
 dy(2,1) = (K(6)+K(7)*(y(1).^K(33) /(K(8).^K(33) +y(1).^K(33)) ) -  K(9) *y(2));
 % SWI5 mRNA (note that the values of 3 parameters change depending on the medium, galactose
